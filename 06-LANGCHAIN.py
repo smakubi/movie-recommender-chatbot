@@ -99,7 +99,7 @@ chain2.invoke({"person": "obama", "language": "spanish"})
 
 # COMMAND ----------
 
-os.environ["SERPAPI_API_KEY"] ='4cbdc6699f3110c59a0e1189869009cbd2b2846758ce00a591cb24135df724e5'
+os.environ["SERPAPI_API_KEY"] ='ea6c7880d5b806ec217cb8eeb8fc318b8df8f711936bc9518e33d4653b54ae83'
 
 llm = ChatDatabricks(endpoint="databricks-llama-2-70b-chat", max_tokens = 200)
 tools = load_tools(["serpapi", "llm-math"], llm=llm)
@@ -109,9 +109,9 @@ agent = initialize_agent(tools,
                          verbose=True,
                          handle_parsing_errors=True)
 
-# agent.run("Who is the United States President? What will be their age in 5 years?")
+agent.run("Who is the United States President? What will be their age in 5 years?")
 # agent.run("What 350 raised to the power of 2?")
-agent.run("Who is the current leader of Japan? What is their age multiplied by 2? Answer both questions")
+# agent.run("Who is the current leader of Japan? What is their age multiplied by 2? Answer both questions")
 
 # COMMAND ----------
 

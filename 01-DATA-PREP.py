@@ -14,7 +14,8 @@
 # COMMAND ----------
 
 import huggingface_hub
-hf_token = dbutils.secrets.get(f"{secrets_scope}", f"{secrets_hf_key_name}")
+# hf_token = dbutils.secrets.get(f"{secrets_scope}", f"{secrets_hf_key_name}")
+hf_token = "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"
 from huggingface_hub import login
 login(token=hf_token)
 
@@ -263,8 +264,8 @@ df = spark.sql(f'''select wikipedia_movie_id,
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC select count(*) from ml_shovakeemian.llm_workshop.movie_documents_silver;
+query = f"""select count(*) from {catalog}.{schema}.movie_documents_silver""";
+display(spark.sql(query))
 
 # COMMAND ----------
 

@@ -38,10 +38,10 @@ spark.sql(f'''
 # COMMAND ----------
 
 # create a Vector Search Index (although in this case we're going to reuse the demo endpoint)
-# vsc.create_endpoint(
-#     name=vs_endpoint_name,
-#     endpoint_type="STANDARD" #PERFORMANCE_OPTIMIZED, STORAGE_OPTIMIZED
-# )
+vsc.create_endpoint(
+    name=vs_endpoint_name,
+    endpoint_type="STANDARD" #PERFORMANCE_OPTIMIZED, STORAGE_OPTIMIZED
+)
 
 # COMMAND ----------
 
