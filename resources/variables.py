@@ -50,6 +50,7 @@ embedding_endpoint_name = f'{user_name}-e5-small-v2-endpoint'
 
 #VECTOR SEARCH
 vs_endpoint_name=f'{user_name}-movie-recommender'
+# co-forge vector search endpoint
 
 vs_index = f'{user_name}_movie_index'
 vs_index_fullname = f"{catalog}.{schema}.{vs_index}"
