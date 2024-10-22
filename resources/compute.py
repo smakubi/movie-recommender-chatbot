@@ -10,7 +10,7 @@ URL = f"{API_URL}/api/2.0/clusters/create"
 
 CLUSTER_CONFIG = {
     "cluster_name": f"{USER_NAME}'s LLM Cluster",
-    "spark_version": "15.4.x-cpu-ml-scala2.12",
+    "spark_version": "15.2.x-cpu-ml-scala2.12",
     "spark_conf": {
         "spark.master": "local[*, 4]",
         "spark.databricks.cluster.profile": "singleNode"
@@ -29,8 +29,11 @@ CLUSTER_CONFIG = {
     "enable_elastic_disk": True,
     "single_user_name": f"{EMAIL}",
     "data_security_mode": "SINGLE_USER",
+    "enable_local_disk_encryption": False,
     "runtime_engine": "STANDARD",
+    "effective_spark_version": "15.4.x-cpu-ml-scala2.12",
     "num_workers": 0,
+    "apply_policy_default_values": False
 }
 
 response = requests.post(URL, json=CLUSTER_CONFIG, headers={"Authorization": f"Bearer {TOKEN}"})
