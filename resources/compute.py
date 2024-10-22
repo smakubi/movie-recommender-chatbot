@@ -16,16 +16,13 @@ CLUSTER_CONFIG = {
         "spark.master": "local[*, 4]",
         "spark.databricks.cluster.profile": "singleNode"
     },
-    "aws_attributes": {
+    "azure_attributes": {
         "first_on_demand": 1,
-        "availability": "ON_DEMAND",
-        "zone_id": "auto",
-        "spot_bid_price_percent": 100,
-        "ebs_volume_count": 0
+        "availability": "ON_DEMAND_AZURE",
+        "spot_bid_max_price": -1
     },
-    "node_type_id": "r5d.24xlarge",
-    "driver_node_type_id": "r5d.24xlarge",
-    "ssh_public_keys": [],
+    "node_type_id": "Standard_D96ads_v5",
+    "driver_node_type_id": "Standard_D96ads_v5",
     "custom_tags": {
         "ResourceClass": "SingleNode"
     },
@@ -37,8 +34,6 @@ CLUSTER_CONFIG = {
     "data_security_mode": "SINGLE_USER",
     "runtime_engine": "STANDARD"
 }
-
-
 
 response = requests.post(URL, json=CLUSTER_CONFIG, headers={"Authorization": f"Bearer {TOKEN}"})
 
