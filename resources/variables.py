@@ -10,12 +10,12 @@ user_name = dbutils.notebook.entry_point.getDbutils().notebook().getContext().us
 # COMMAND ----------
 
 #GENERAL
-catalog='mlx_semmanuel'
+catalog='adb_genai_workshop_premium'
 schema = f'{user_name}_llm_workshop'
 volume_name = 'cmu_movies'
 
-secrets_scope=''
-secrets_hf_key_name=''
+secrets_scope='hfscope'
+secrets_hf_key_name='hftoken'
 
 workspace_url = "https://" + spark.conf.get("spark.databricks.workspaceUrl") 
 base_url = dbutils.notebook.entry_point.getDbutils().notebook().getContext().apiUrl().get()
@@ -23,7 +23,7 @@ base_url = dbutils.notebook.entry_point.getDbutils().notebook().getContext().api
 # COMMAND ----------
 
 #CREATE ASSETS
-spark.sql(f"CREATE CATALOG IF NOT EXISTS {catalog}")
+#spark.sql(f"CREATE CATALOG IF NOT EXISTS {catalog}")
 spark.sql(f"USE CATALOG {catalog}")
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema}")
 spark.sql(f"USE SCHEMA {schema}")
@@ -32,7 +32,7 @@ spark.sql(f"CREATE VOLUME IF NOT EXISTS {volume_name}")
 # COMMAND ----------
 
 #DATA PREP
-volume_path=f"/Volumes/{catalog}/{schema}/{volume_name}"
+volume_path=f"/Volumes/{catalog}/gopal_llm_workshop/{volume_name}"
 
 chunk_size=200
 chunk_overlap=50

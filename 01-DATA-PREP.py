@@ -14,8 +14,9 @@
 # COMMAND ----------
 
 import huggingface_hub
-# hf_token = dbutils.secrets.get(f"{secrets_scope}", f"{secrets_hf_key_name}")
-hf_token = "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"
+hf_token = dbutils.secrets.get(f"{secrets_scope}", f"{secrets_hf_key_name}")
+# hf_token = "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"
+print(hf_token)
 from huggingface_hub import login
 login(token=hf_token)
 

@@ -39,8 +39,8 @@ from mlflow.utils.databricks_utils import get_databricks_host_creds
 # COMMAND ----------
 
 # Login to Huggingface to get access to the model
-# hf_token = dbutils.secrets.get(f"{secrets_scope}", f"{secrets_hf_key_name}")
-hf_token = "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"
+hf_token = dbutils.secrets.get(f"{secrets_scope}", f"{secrets_hf_key_name}")
+# hf_token = "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"
 login(token=hf_token)
 
 # COMMAND ----------
