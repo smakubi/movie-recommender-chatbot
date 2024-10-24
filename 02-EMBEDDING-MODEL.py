@@ -55,13 +55,34 @@ mlflow_client = mlflow.MlflowClient()
 
 # COMMAND ----------
 
+requirements = """
+mlflow==2.12.1
+accelerate==0.25.0
+astunparse==1.6.3
+boto3==1.24.28
+cffi==1.15.1
+defusedxml==0.7.1
+dill==0.3.6
+google-cloud-storage==2.11.0
+ipython==8.14.0
+opt-einsum==3.3.0
+pydantic==1.10.6
+sentence-transformers>=2.3.0
+torch==2.0.1
+transformers==4.36.1
+huggingface-hub==0.25.2
+"""
+with open("requirements.txt", "w") as f:
+    f.write(requirements)
+
 # register model into UC
 model_info = mlflow.sentence_transformers.log_model(
   model,
   artifact_path="model",
   signature=signature,
   input_example=sentences,
-  registered_model_name=registered_embedding_model_name)
+  registered_model_name=registered_embedding_model_name,
+  pip_requirements="requirements.txt")
 
 # write a model description
 mlflow_client.update_registered_model(
