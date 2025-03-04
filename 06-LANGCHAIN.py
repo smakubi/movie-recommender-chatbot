@@ -484,7 +484,7 @@ user_input
 
 # COMMAND ----------
 
-chatbot_response = movie_retrieval_chain.invoke({"user_input": user_input,
+chatbot_response = movie_retrieval_chainthe.invoke({"user_input": user_input,
                                                 "history": memory.buffer.split("New summary:")[-1],
                                                 "filters_json": {"premium": (0,1)},
                                                 "num_results": 3,

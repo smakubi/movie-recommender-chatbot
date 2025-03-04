@@ -1,5 +1,10 @@
 # Databricks notebook source
 # MAGIC %md
+# MAGIC Example
+
+# COMMAND ----------
+
+# MAGIC %md
 # MAGIC
 # MAGIC # 01 DATA PREPARATION
 # MAGIC
